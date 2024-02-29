@@ -6,6 +6,7 @@ var logger = require("morgan");
 const mongoose = require("mongoose");
 require("dotenv").config();
 
+const sign_upRouter = require("./routes/sign_up");
 var indexRouter = require("./routes/index");
 
 var app = express();
@@ -30,6 +31,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
+app.use("/sign-up", sign_upRouter);
 
 app.use(function (req, res, next) {
   next(createError(404));

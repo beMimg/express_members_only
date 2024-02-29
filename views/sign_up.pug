@@ -1,0 +1,19 @@
+extends layout 
+
+block content 
+  h1 Sign up 
+  form(method="post") 
+    label(for="first_name") First Name: 
+    input(type="text" required name="first_name" value=(undefined===user ? "" : user.first_name))
+    label(for='last_name') Last Name: 
+    input(type="text" required name="last_name" value=(undefined===user ? "" : user.last_name))
+    label(for="username") Username: 
+    input(type="text" required name="username" value=(undefined===user ? "" : user.username))
+    label(for="password") Password: 
+    input(type="password" required name="password") 
+    button(type="submit") Create Account
+
+    if errors 
+      ul 
+        for error in errors
+          li!= error.msg
