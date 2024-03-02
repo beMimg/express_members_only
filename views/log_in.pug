@@ -1,0 +1,10 @@
+extends layout 
+
+block content 
+  h1 Login 
+  form(method="post")
+    label(for="username") Username:
+    input(type="text" name="username" required value=(undefined===user ? '' : user.username))  
+    label(for="password") Password:
+    input(type="password" name="password" required value=(undefined===user ? '' : user.password))
+    button(type="submit") Login
