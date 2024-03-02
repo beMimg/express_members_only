@@ -1,10 +1,13 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  if user 
-    p Hello #{user.username}
-
-  else 
-   p  go login
+  nav 
+    a(href="/messages") Messages
+    if !user 
+      a(href="/sign-up") Sign Up 
+      a(href='/sign-in') Sign In
+    else 
+      a(href='/dashboard') Dashboard
+      a(href="/membership") Be a Member
+      a(href="/admin") Be an Admin
+      

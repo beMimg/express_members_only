@@ -13,7 +13,7 @@
 //     await mongoose.connect(process.env.MONGODB_URI);
 //     const db = mongoose.connection;
 //     console.log("should be connected to db");
-//     // console.log("creating users");
+//     console.log("creating users");
 //     await createUsers();
 //     await createMessages();
 //     mongoose.connection.close();
@@ -22,7 +22,15 @@
 //   }
 // }
 
-// async function createUser(index, first_name, last_name, username, password) {
+// async function createUser(
+//   index,
+//   first_name,
+//   last_name,
+//   username,
+//   password,
+//   membership_status,
+//   admin
+// ) {
 //   try {
 //     console.log("trying to create a user");
 //     const user = new User({
@@ -30,12 +38,14 @@
 //       last_name,
 //       username,
 //       password,
+//       membership_status,
+//       admin,
 //     });
 //     await user.save();
 //     users[index] = user;
 //     console.log("user should be created");
 //   } catch (err) {
-//     console.log("could not create a user, fail");
+//     console.log(err);
 //   }
 // }
 
@@ -57,9 +67,17 @@
 
 // async function createUsers() {
 //   await Promise.all([
-//     createUser(0, "John", "Miller", "jMiller00", "somerandompass"),
-//     createUser(1, "Mike", "Johnson", "mOJohnss", "mjjj1"),
-//     createUser(2, "Flynn", "Frok", "fflyrock", "rules"),
+//     createUser(
+//       0,
+//       "John",
+//       "Miller",
+//       "jMiller00",
+//       "somerandompass",
+//       false,
+//       false
+//     ),
+//     createUser(1, "Mike", "Johnson", "mOJohnss", "mjjj1", false, false),
+//     createUser(2, "Flynn", "Frok", "fflyrock", "rules", false, false),
 //   ]);
 // }
 
