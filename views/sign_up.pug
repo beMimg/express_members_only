@@ -11,6 +11,8 @@ block content
     input(type="text" required name="username" value=(undefined===user ? "" : user.username))
     label(for="password") Password: 
     input(type="password" required name="password") 
+    label(for="passwordConfirmation") Password Confirmation:
+    input(type="password" name='passwordConfirmation' required )
     button(type="submit") Create Account
 
     if errors 

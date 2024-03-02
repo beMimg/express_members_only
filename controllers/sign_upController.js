@@ -19,7 +19,12 @@ exports.sign_up_post = [
     .trim()
     .isLength({ min: 3 })
     .escape()
-    .withMessage("Must have at least 3 characters"),
+    .withMessage("Password must have at least 3 characters"),
+  body("passwordConfirmation")
+    .custom((value, { req }) => {
+      return value === req.body.password;
+    })
+    .withMessage("Passwords didn't match."),
 
   async (req, res, next) => {
     try {
