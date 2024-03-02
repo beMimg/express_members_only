@@ -8,8 +8,9 @@ require("dotenv").config();
 const session = require("express-session");
 const passport = require("passport");
 var indexRouter = require("./routes/index");
-const log_inRouter = require("./routes/log_in");
+const sign_inRouter = require("./routes/sign_in");
 const sign_upRouter = require("./routes/sign_up");
+const MongoStore = require("connect-mongo");
 
 // need to create connection to mongostore in seassion.
 var app = express();
@@ -35,17 +36,23 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(
   session({
-    secret: "cats",
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
-    store: Mongo,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGODB_URI,
+    }),
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24,
+    },
   })
 );
+require("./config/passport");
 app.use(passport.session());
 
 app.use("/", indexRouter);
 app.use("/sign-up", sign_upRouter);
-app.use("/log-in", log_inRouter);
+app.use("/sign-in", sign_inRouter);
 
 app.use(function (req, res, next) {
   next(createError(404));

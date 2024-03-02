@@ -1,6 +1,7 @@
 const User = require("../models/user");
 const { body, validationResult } = require("express-validator");
 const mongoose = require("mongoose");
+const bcrypt = require("bcryptjs");
 
 exports.sign_up_get = async (req, res, next) => {
   try {
@@ -23,12 +24,18 @@ exports.sign_up_post = [
   async (req, res, next) => {
     try {
       const errors = validationResult(req);
+
+      const hashedPassword = await bcrypt.hash(req.body.password, 10);
+
       const user = new User({
         first_name: req.body.first_name,
         last_name: req.body.last_name,
         username: req.body.username,
-        password: req.body.password,
+        password: hashedPassword,
+        membership_status: false,
+        admin: false,
       });
+
       if (!errors.isEmpty()) {
         res.render("sign_up", {
           user: user,
