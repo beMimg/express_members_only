@@ -8,9 +8,11 @@ block content
       a(href="/dashboard") Dashboard
       a(href="/admin") Be an Admin
       a(href="/logout") Logout
-  h1=title
-  p=desc
+ 
+ 
   form(action="", method="post" class="form-col") 
+    h1=title
+    p=desc
     label(for="secret_code") Code:
     input(type="text" name="secret_code") 
     button(type="submit") Submit

@@ -19,6 +19,8 @@ exports.membership_post = async (req, res, next) => {
     if (req.body.secret_code !== process.env.MEMBER_SECRET) {
       res.render("membership", {
         user: req.user,
+        title: "Become a Member",
+        desc: "You must be a member in order to chat with people, you can achieve this with a member code",
         errors: ["This code is incorrect"],
       });
       return;
