@@ -33,3 +33,11 @@ exports.isNotMember = (req, res, next) => {
     res.send("You are a member already");
   }
 };
+
+exports.isNotAdmin = (req, res, next) => {
+  if (!req.user.admin) {
+    next();
+  } else {
+    res.send("You're an admin already");
+  }
+};

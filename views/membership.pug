@@ -8,12 +8,12 @@ block content
       a(href="/dashboard") Dashboard
       a(href="/admin") Be an Admin
       a(href="/logout") Logout
-  h1 Become a Member 
-  p If you want to chat with other poeple, you must be a member first.
+  h1=title
+  p=desc
   form(action="", method="post") 
-    label(for="secret_code") Member Code: 
+    label(for="secret_code") Code:
     input(type="text" name="secret_code") 
-    button(type="submit") Become a member
+    button(type="submit") Submit
 
   if errors 
     each error in errors 
