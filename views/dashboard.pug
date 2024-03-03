@@ -23,6 +23,8 @@ block content
             p Message:
               strong= message.text
             p=message.date
+            if user.admin 
+              a(href=`/admin${message.url}/delete`) X
     div(class='right-side')
       form(action="", method="post") 
         div

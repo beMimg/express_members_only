@@ -41,3 +41,11 @@ exports.isNotAdmin = (req, res, next) => {
     res.send("You're an admin already");
   }
 };
+
+exports.isAdmin = (req, res, next) => {
+  if (req.user.admin) {
+    next();
+  } else {
+    res.send("You are not admin");
+  }
+};

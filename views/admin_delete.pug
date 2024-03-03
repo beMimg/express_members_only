@@ -1,0 +1,27 @@
+extends layout 
+
+block content 
+  nav(class="nav")
+    div
+      h1=user.username
+    div(class="links")
+      a(href='/dashboard') Dashboard
+      if !user.membership_status
+        a(href="/membership") Be a Member
+      if !user.admin
+        a(href="/admin") Be an Admin
+      else 
+        p You're in Admin Mode
+      a(href="/logout") Logout
+  div
+    h1 Message Info: 
+    div 
+      p Author: 
+      a(href=message.author.url) #{message.author.username}
+    p Message:
+      strong #{message.text}
+    p Timestamp: 
+      strong #{message.date}
+  form(action="", method="post")
+    input(type="hidden" name="message_id" value=message._id)  
+    button(type="submit") Delete Message

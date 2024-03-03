@@ -14,4 +14,9 @@ MessageSchema.virtual("date").get(function () {
     DateTime.DATETIME_MED
   );
 });
+
+MessageSchema.virtual("url").get(function () {
+  return `/message/${this._id}`;
+});
+
 module.exports = mongoose.model("Message", MessageSchema);
