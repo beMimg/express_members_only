@@ -24,14 +24,17 @@ block content
       if visited_user.admin   
         h2 Admin
       p Created: #{visited_user.date}
-    if visited_user_messages
-      each message in visited_user_messages 
-        div(class="message-container")
-            a(href=message.author.url) #{message.author.username}
-            p Title:
-              strong= message.title
-            p Message:
-              strong= message.text
-            p=message.date
-            if user.admin 
-              a(href=`/admin${message.url}/delete`) X
+    div(class='user-messages')
+      if visited_user_messages
+        each message in visited_user_messages 
+          div(class="message-container-dashboard")
+              a(href=message.author.url) #{message.author.username}
+              div
+                p Title:
+                strong= message.title
+              div
+                p message;
+                strong= message.text
+              p=message.date
+              if user.admin 
+                a(class="delete-btn" href=`/admin${message.url}/delete`) X

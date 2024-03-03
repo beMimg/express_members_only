@@ -1,7 +1,20 @@
 extends layout 
 
 block content 
-  h1="You are already logged in"
-  h2="Logout first"
-  a(href='/logout') Logout
+  nav(class="nav")
+    div
+      h1=user.username
+    div(class="links")
+      a(href='/dashboard') Dashboard
+      if !user.membership_status
+        a(href="/membership") Be a Member
+      if !user.admin
+        a(href="/admin") Be an Admin
+      else 
+        p You're in Admin Mode
+      a(href="/logout") Logout
+  div(class='not-auth')
+    h1="You are already logged in"
+    h2="Logout first"
+    a(href='/logout') Logout
   

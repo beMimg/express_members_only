@@ -13,15 +13,17 @@ block content
       else 
         p You're in Admin Mode
       a(href="/logout") Logout
-  div
+  div(class='delete-info')
     h1 Message Info: 
     div 
       p Author: 
       a(href=message.author.url) #{message.author.username}
-    p Message:
+    div  
+      p Message:
       strong #{message.text}
-    p Timestamp: 
+    div
+      p Timestamp: 
       strong #{message.date}
   form(action="", method="post")
     input(type="hidden" name="message_id" value=message._id)  
-    button(type="submit") Delete Message
+    button(type="submit" class='delete-post') Delete Message

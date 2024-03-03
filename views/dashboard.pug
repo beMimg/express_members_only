@@ -14,18 +14,21 @@ block content
         p You're in Admin Mode
       a(href="/logout") Logout
   div(class='main-content')
-    div(class='left-side')
+    div(class='left-side-dashboard')
       if messages 
         each message in messages 
-          div(class="message-container")
-            a(href=message.author.url) #{message.author.username}
-            p Title:
+          div(class="message-container-dashboard")
+            a(href=message.author.url) 
+              strong=message.author.username
+            div
+              p Title:
               strong= message.title
-            p Message:
+            div
+              p Message:
               strong= message.text
             p=message.date
             if user.admin 
-              a(href=`/admin${message.url}/delete`) X
+              a(class="delete-btn" href=`/admin${message.url}/delete`) X
     div(class='right-side')
       form(action="", method="post") 
         div

@@ -6,6 +6,9 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: #ecf0f1;
+  color: black;
+  overflow: hidden;
 }
 
 h1,
@@ -21,7 +24,11 @@ p {
 
 .nav a {
   text-decoration: none;
-  color: white;
+  color: black;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: 600;
 }
 
 .message-container a {
@@ -29,18 +36,21 @@ p {
 }
 
 .nav {
-  padding: 10px;
+  padding: 30px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  background-color: rgb(32, 32, 32);
   color: white;
+  width: 100%;
+  background-color: #3498db;
 }
 
 .links {
   display: flex;
   gap: 20px;
+  justify-content: center;
+  align-items: center;
 }
 
 .messages-container {
@@ -53,10 +63,14 @@ p {
 
 .message-container {
   border: 1px solid black;
-  padding: 10px;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  color: black;
+  gap: 8px;
+  background-color: rgb(0, 0, 0);
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
 }
 
 .main-content {
@@ -64,13 +78,14 @@ p {
   grid-template-columns: 2fr 1fr;
   flex: 1;
   align-items: center;
+  padding: 20px;
 }
 
 .main-content form {
   display: flex;
   flex-direction: column;
-  padding: 10px;
   gap: 10px;
+  padding: 20px;
 }
 
 form div {
@@ -101,4 +116,86 @@ button {
   color: white;
   font-weight: 700;
   cursor: pointer;
+}
+
+.left-side-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 15px;
+  overflow: scroll;
+  height: 80vh;
+}
+
+.message-container-dashboard {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  color: black;
+  gap: 8px;
+  background-color: rgb(0, 0, 5);
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  position: relative;
+}
+.message-container-dashboard a {
+  color: white;
+}
+.message-container-dashboard .delete-btn {
+  position: absolute;
+  right: 15px;
+}
+.message-container-dashboard div {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.user-main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 70px;
+  gap: 20px;
+  overflow: auto;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.user-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-col {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  padding: 20px;
+  gap: 10px;
+  align-self: center;
+}
+
+.not-auth {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.delete-info {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.delete-post {
+  margin: 30px;
 }

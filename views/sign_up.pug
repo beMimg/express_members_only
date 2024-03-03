@@ -1,8 +1,14 @@
 extends layout 
 
 block content 
-  h1 Sign up 
-  form(method="post") 
+  nav(class="nav")
+    div 
+      h1 Members Only 
+    div(class='links')
+      a(href="/sign-up") Sign Up 
+      a(href='/sign-in') Sign In
+  form(method="post" class="form-col") 
+    h1 Sign up 
     label(for="first_name") First Name: 
     input(type="text" required name="first_name" value=(undefined===user ? "" : user.first_name))
     label(for='last_name') Last Name: 
