@@ -6,7 +6,6 @@ const Message = require("../models/message");
 router.get("/", async (req, res, next) => {
   try {
     const messages = await Message.find().exec();
-    console.log(messages);
     res.render("index", { title: "Express", user: req.user });
   } catch (err) {
     return next(err);
