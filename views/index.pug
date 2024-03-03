@@ -1,13 +1,16 @@
 extends layout
 
 block content
-  nav 
-    a(href="/messages") Messages
+  nav(class='nav') 
     if !user 
-      a(href="/sign-up") Sign Up 
-      a(href='/sign-in') Sign In
-    else 
-      a(href='/dashboard') Dashboard
-      a(href="/membership") Be a Member
-      a(href="/admin") Be an Admin
-      
+      div 
+        h1 Members Only 
+      div(class='links')
+        a(href="/sign-up") Sign Up 
+        a(href='/sign-in') Sign In
+  div(class="messages-container") 
+    if messages
+      each message in messages
+        div(class="message-container")
+          p Title: #{message.title}     
+          p Message: #{message.text}
