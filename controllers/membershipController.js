@@ -12,8 +12,6 @@ exports.membership_get = (req, res, next) => {
 
 exports.membership_post = async (req, res, next) => {
   try {
-    console.log(req.body.secret_code);
-    console.log(process.env.MEMBER_SECRET);
     if (req.body.secret_code !== process.env.MEMBER_SECRET) {
       res.render("membership", {
         user: req.user,
