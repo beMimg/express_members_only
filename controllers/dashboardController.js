@@ -3,9 +3,10 @@ const Message = require("../models/message");
 
 exports.dashboard_get = async (req, res, next) => {
   try {
-    let messages = await Message.find().populate("author").exec();
-
-    messages.reverse();
+    let messages = await Message.find()
+      .populate("author")
+      .sort({ timestamp: -1 })
+      .exec();
 
     res.render("dashboard", {
       user: req.user,

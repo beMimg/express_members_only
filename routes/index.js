@@ -6,8 +6,9 @@ const Message = require("../models/message");
 router.get("/", async (req, res, next) => {
   if (req.isUnauthenticated()) {
     try {
-      const messages = await Message.find().exec();
-      messages.reverse();
+      const messages = await Message.find().sort({ timestamp: -1 }).exec();
+      console.log(messages);
+
       res.render("index", {
         title: "Express",
         user: req.user,
