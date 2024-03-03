@@ -5,7 +5,8 @@ block content
     div
       h1=user.username
     div(class="links")
-      a(href="/membership") Be a Member
+      if !user.membership_status
+        a(href="/membership") Be a Member
       a(href="/admin") Be an Admin
       a(href="/logout") Logout
   div(class='main-content')

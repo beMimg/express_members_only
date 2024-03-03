@@ -14,6 +14,17 @@ exports.dashboard_get = async (req, res, next) => {
   }
 };
 
-exports.dashboard_message_post = (req, res, next) => {
-  res.send("f");
+exports.dashboard_message_post = async (req, res, next) => {
+  try {
+    const message = new Message({
+      title: req.body.title,
+      text: req.body.text,
+      author: req.user._id,
+    });
+
+    await message.save();
+    res.redirect("/dashboard");
+  } catch (err) {
+    return next(err);
+  }
 };
