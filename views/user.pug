@@ -1,6 +1,6 @@
 extends layout 
 
-block content   
+block content 
   nav(class="nav")
     div
       h1=user.username
@@ -13,11 +13,20 @@ block content
       else 
         p You're in Admin Mode
       a(href="/logout") Logout
-  div(class='main-content')
-    div(class='left-side')
-      if messages 
-        each message in messages 
-          div(class="message-container")
+  div(class='user-main-content')
+    div(class='user-info')
+      h1=visited_user.username
+      p=visited_user.complete_name
+      if visited_user.membership_status
+        p Member 
+      else 
+        p Not member
+      if visited_user.admin   
+        h2 Admin
+      p Created: #{visited_user.date}
+    if visited_user_messages
+      each message in visited_user_messages 
+        div(class="message-container")
             a(href=message.author.url) #{message.author.username}
             p Title:
               strong= message.title
@@ -26,12 +35,3 @@ block content
             p=message.date
             if user.admin 
               a(href=`/admin${message.url}/delete`) X
-    div(class='right-side')
-      form(action="", method="post") 
-        div
-          label(for="title") Title:
-          input(type="text" name='title' required )
-        div
-          label(for="text") Message:
-          input(type="text" name="text" maxlength=100 required)  
-        button(type="submit") Send

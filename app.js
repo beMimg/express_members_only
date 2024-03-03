@@ -14,6 +14,7 @@ const logoutRouter = require("./routes/logout");
 const dashboardRouter = require("./routes/dashboard");
 const membershipRouter = require("./routes/membership");
 const adminRouter = require("./routes/admin");
+const userRouter = require("./routes/user");
 const MongoStore = require("connect-mongo");
 
 // need to create connection to mongostore in seassion.
@@ -61,6 +62,7 @@ app.use("/logout", logoutRouter);
 app.use("/dashboard", dashboardRouter);
 app.use("/membership", membershipRouter);
 app.use("/admin", adminRouter);
+app.use("/user", userRouter);
 
 app.use(function (req, res, next) {
   next(createError(404));
