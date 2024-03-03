@@ -7,6 +7,7 @@ router.get("/", async (req, res, next) => {
   if (req.isUnauthenticated()) {
     try {
       const messages = await Message.find().exec();
+      messages.reverse();
       res.render("index", {
         title: "Express",
         user: req.user,

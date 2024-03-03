@@ -3,7 +3,9 @@ const Message = require("../models/message");
 
 exports.dashboard_get = async (req, res, next) => {
   try {
-    const messages = await Message.find().populate("author").exec();
+    let messages = await Message.find().populate("author").exec();
+
+    messages.reverse();
 
     res.render("dashboard", {
       user: req.user,

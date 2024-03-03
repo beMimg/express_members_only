@@ -63,6 +63,7 @@ p {
   display: grid;
   grid-template-columns: 2fr 1fr;
   flex: 1;
+  align-items: center;
 }
 
 .main-content form {
@@ -78,7 +79,8 @@ form div {
 }
 
 .left-side {
-  overflow: auto;
+  overflow: scroll;
+  max-height: 75vh;
 }
 
 .right-side {
