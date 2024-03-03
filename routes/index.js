@@ -7,7 +7,6 @@ router.get("/", async (req, res, next) => {
   if (req.isUnauthenticated()) {
     try {
       const messages = await Message.find().sort({ timestamp: -1 }).exec();
-      console.log(messages);
 
       res.render("index", {
         title: "Express",
