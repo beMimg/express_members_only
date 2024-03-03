@@ -1,8 +1,9 @@
 extends layout
 
 block content
-  div 
-    h1 Members Only 
+  nav(class="nav")
+    div 
+      h1 Members Only 
     div(class='links')
       a(href="/sign-up") Sign Up 
       a(href='/sign-in') Sign In
@@ -10,5 +11,7 @@ block content
     if messages
       each message in messages
         div(class="message-container")
-          p Title: #{message.title}     
-          p Message: #{message.text}
+          p Title: 
+            strong #{message.title}     
+          p Message: 
+            strong #{message.text}

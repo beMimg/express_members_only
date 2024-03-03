@@ -7,4 +7,23 @@ block content
     div(class="links")
       a(href="/membership") Be a Member
       a(href="/admin") Be an Admin
-      a(href="/logout")
+      a(href="/logout") Logout
+  div(class='main-content')
+    div(class='left-side')
+      if messages 
+        each message in messages 
+          div(class="message-container")
+            a(href=message.author.url) #{message.author.username}
+            p Title:
+              strong= message.title
+            p Message:
+              strong= message.text
+    div(class='right-side')
+      form(action="", method="post") 
+        div
+          label(for="title") Title:
+          input(type="text" name='title' required )
+        div
+          label(for="text") Message:
+          input(type="text" name="text" required)  
+        button(type="submit") Send

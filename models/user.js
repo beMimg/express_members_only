@@ -16,7 +16,7 @@ UserSchema.virtual("complete_name").get(function () {
 });
 
 UserSchema.virtual("url").get(function () {
-  return `/user/${this.user._id}`;
+  return `/user/${this._id}`;
 });
 
 module.exports = mongoose.model("User", UserSchema);
