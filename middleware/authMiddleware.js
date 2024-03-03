@@ -8,3 +8,11 @@ exports.isUnauthSign = (req, res, next) => {
     });
   }
 };
+
+exports.isAuth = (req, res, next) => {
+  if (req.isAuthenticated()) {
+    next();
+  } else {
+    res.send("My friend you should not be here");
+  }
+};

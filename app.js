@@ -11,6 +11,7 @@ var indexRouter = require("./routes/index");
 const sign_inRouter = require("./routes/sign_in");
 const sign_upRouter = require("./routes/sign_up");
 const logoutRouter = require("./routes/logout");
+const dashboardRouter = require("./routes/dashboard");
 const MongoStore = require("connect-mongo");
 
 // need to create connection to mongostore in seassion.
@@ -55,6 +56,7 @@ app.use("/", indexRouter);
 app.use("/sign-up", sign_upRouter);
 app.use("/sign-in", sign_inRouter);
 app.use("/logout", logoutRouter);
+app.use("/dashboard", dashboardRouter);
 
 app.use(function (req, res, next) {
   next(createError(404));

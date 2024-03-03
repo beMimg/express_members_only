@@ -1,0 +1,10 @@
+extends layout 
+
+block content   
+  nav(class="nav")
+    div
+      h1=user.username
+    div(class="links")
+      a(href="/membership") Be a Member
+      a(href="/admin") Be an Admin
+      a(href="/logout")

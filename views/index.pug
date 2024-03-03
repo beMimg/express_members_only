@@ -1,13 +1,11 @@
 extends layout
 
 block content
-  nav(class='nav') 
-    if !user 
-      div 
-        h1 Members Only 
-      div(class='links')
-        a(href="/sign-up") Sign Up 
-        a(href='/sign-in') Sign In
+  div 
+    h1 Members Only 
+    div(class='links')
+      a(href="/sign-up") Sign Up 
+      a(href='/sign-in') Sign In
   div(class="messages-container") 
     if messages
       each message in messages
