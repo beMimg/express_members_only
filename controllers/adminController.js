@@ -17,8 +17,6 @@ exports.admin_get = (req, res, next) => {
 
 exports.admin_post = async (req, res, next) => {
   try {
-    console.log(req.body.secret_code);
-    console.log(process.env.ADMIN_CODE);
     if (req.body.secret_code !== process.env.ADMIN_SECRET) {
       res.render("membership", {
         user: req.user,
@@ -53,7 +51,6 @@ exports.admin_delete_get = async (req, res, next) => {
 
 exports.admin_delete_post = async (req, res, next) => {
   try {
-    console.log(req.body);
     await Message.findByIdAndDelete(req.body.message_id);
     res.redirect("/");
   } catch (err) {
