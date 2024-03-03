@@ -13,3 +13,7 @@ exports.dashboard_get = async (req, res, next) => {
     return next(err);
   }
 };
+
+exports.dashboard_message_post = (req, res, next) => {
+  res.send("f");
+};

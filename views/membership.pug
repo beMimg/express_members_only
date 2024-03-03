@@ -1,0 +1,20 @@
+extends layout 
+
+block content  
+  nav(class="nav")
+    div
+      h1=user.username
+    div(class="links")
+      a(href="/dashboard") Dashboard
+      a(href="/admin") Be an Admin
+      a(href="/logout") Logout
+  h1 Become a Member 
+  p If you want to chat with other poeple, you must be a member first.
+  form(action="", method="post") 
+    label(for="secret_code") Member Code: 
+    input(type="text" name="secret_code") 
+    button(type="submit") Become a member
+
+  if errors 
+    each error in errors 
+      li=error
